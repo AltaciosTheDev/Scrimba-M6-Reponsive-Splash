@@ -1,0 +1,196 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    font-size: 1.125rem; /* no need to state, already default */
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #404040;/* light black  */
+    text-align: center;/* check the alignment, not generally this case */
+    font-weight: 300;
+}
+
+h1,h2{
+    margin-top: 0;
+}
+
+/* =================
+TYPOGRAPHY
+==================== */
+
+h1{
+    font-size: 2.25rem;
+    font-weight: 300;
+    color: #fff;
+    margin: 0;
+}
+
+h1 + p{/* compound selector for ADJACENT SIBLING: 
+will only target a P directly after an H1 */
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #f18119;
+    font-size: 1.3125rem;
+    margin: 0;
+}
+
+h2{
+    margin:0;
+}
+
+h2 +p{
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #f18119;
+    margin-top: 0;
+    margin-bottom: 1.5em;
+}
+
+.top-text{
+    text-transform: uppercase;     
+    color: #f18119;
+    font-weight: 900;
+    order: -1;
+    padding-top: 0.5em;
+    border-top: 5px solid #f18119;
+    border-image: linear-gradient(to left, #FF713B, #FFA51D) 1;       /* NEW  */
+   margin: 0 auto;         
+}
+
+.fine-print, .top-text{
+    font-size: 0.625rem;/* will work on both small and big */  
+    letter-spacing: 1px;
+}
+
+.fine-print{
+    font-weight: 400;
+    margin: 0 auto;
+}
+
+strong{font-weight: 900;/* strongs does BOLDER=1jump in font-weight*/}
+
+/* =================
+INTRO SECTION 
+==================== */
+.intro{
+    padding: 0 .5em 2em;
+    /* is a safety if the backgroun image does not load */
+    background-blend-mode: multiply;
+    background-color: #404040;
+    background-image: url(../images/ribs.jpg);
+    /* darkened image is a lot better to visualize  */
+    background-size: cover;   
+    background-position: center; 
+    
+    /* alignment */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 50vh;
+}
+
+/* =================
+MAIN CONTENT SECTION
+==================== */
+
+.main-content{
+    padding: 2em 1em;
+}
+
+.intro > *, .main-content > *{
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.email-collecter{
+    max-width: 300px;
+    width: 80%;
+}
+
+input, .btn{
+    /* always remember form elements don't inherit anything */
+    font-family: inherit;
+    width: 100%;
+    padding: 0.5em 1em;
+    border-radius: 8px;
+    border: 1px solid #404040;
+    transition: border 250ms;
+    margin-bottom: 0.7em;
+    /* ALWAYS INHERIT WHEN YOU CAN */
+    text-align: inherit;
+    
+    /* transition with transform */
+    transform: scale(1);
+    transition: transform 250ms;
+
+}
+
+.btn-primary{
+    text-transform: uppercase;
+    background-image: linear-gradient(to left, #FF713B , #FFA51D);
+    color: white;
+    /* transiion will change property from the specified to the one in the hover state 250ms-500ms*/
+    transition: color 1s;
+    font-size: 0.8rem;
+    padding: 1em;
+    letter-spacing: 1px;
+    /* always remember to let users know which elements they can interact with. */
+    cursor: pointer;
+    font-weight: 900;
+    
+    /* scaling with transition */
+    transform: scale(1);
+    transition: transform 250ms;
+}
+
+ input:focus{
+    transform: scale(1.2);
+    border: 2px solid #f18119;
+}
+
+.btn-primary:hover,
+.btn-primary:focus{
+    color: black; 
+    transform: scale(1.2);
+
+}
+
+/* =================
+ MEDIA QUERY
+==================== */
+@media screen and (min-width:570px){
+    
+    body{
+    font-size: 1.125rem;
+    }
+    
+    h1{
+    font-size: 3.5rem;
+    }
+
+    h2,
+    h1 + p{
+        font-size: 1.75rem;
+    } 
+    
+    body{
+        display: flex;
+    }
+    
+    .main-content{
+        width: 50%;
+        /* margin: 0 auto -> will also center the section */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .intro{
+        width: 50%;
+        min-height: 100vh;
+    }
+}
